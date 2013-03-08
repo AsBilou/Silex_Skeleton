@@ -2,19 +2,23 @@
 
 use Symfony\Component\HttpFoundation\Request;
 
-$admin = $app['controllers_factory'];
-
-
 $app->get('/login', function(Request $request) use ($app) {
-    return $app['twig']->render('templates/admin/login.twig', array(
+    return $app['twig']->render('admin/login.twig', array(
         'error'         => $app['security.last_error']($request),
         'last_username' => $app['session']->get('_security.last_username'),
     ));
 })->bind('login');
 
+$app->get('/admin', function () use ($app) {
+    return $app->redirect('admin/');
+})
+->bind('admin_redirect');
+
+$admin = $app['controllers_factory'];
+
 $admin->get('/', function () use ($app) {
 
-    return $app['twig']->render('template/admin/index.twig', array(
+    return $app['twig']->render('admin/index.twig', array(
 
     ));
 
