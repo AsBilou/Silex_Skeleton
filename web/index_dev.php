@@ -14,7 +14,7 @@ if ('cli' !== php_sapi_name()) {
 }
 
 $app = require __DIR__ . '/../app/app.php';
-require __DIR__.'/../config/dev.php';
+require __DIR__.'/../app/dev.bootstrap.php';
 require __DIR__ . '/../app/controllers.php';
 require __DIR__ . '/../app/admin.controllers.php';
 $app->mount('/admin',$admin);
