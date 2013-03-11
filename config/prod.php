@@ -4,7 +4,7 @@
 
 //Mise en route de twig
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
-    'twig.path' => __DIR__.'/../templates',
+    'twig.path' => __DIR__.'/../views',
     'twig.options' => array('cache' => __DIR__.'/../cache/twig'),
 ));
 
